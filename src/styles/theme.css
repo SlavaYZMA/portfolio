@@ -1,1 +1,42 @@
+@layer components {
+  .transition-glitch {
+    transition: all 0.3s ease;
+    filter: hue-rotate(0deg);
+  }
 
+  .transition-glitch:hover {
+    filter: hue-rotate(90deg) blur(1px);
+    transform: scale(1.02);
+  }
+
+  .section {
+    @apply min-h-screen flex items-center justify-center p-4;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+
+  .project-card {
+    @apply bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl;
+  }
+
+  .audio-player-btn {
+    @apply bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded transition duration-300;
+  }
+}
+
+@layer utilities {
+  .glitch-effect {
+    animation: glitch 1s linear infinite;
+  }
+
+  @keyframes glitch {
+    2%, 64% {
+      transform: translate(2px, 0) skew(0deg);
+    }
+    4%, 60% {
+      transform: translate(-2px, 0) skew(0deg);
+    }
+    62% {
+      transform: translate(0, 0) skew(5deg);
+    }
+  }
+}
